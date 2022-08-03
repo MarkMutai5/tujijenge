@@ -1,0 +1,16 @@
+.media{
+    height: 0;
+    padding-top: 56.25%;
+}
+
+.cardactions{
+    display: flex;
+    justify-content: flex-end;
+}
+.cardcontent{
+    display: flex;
+    justify-content: space-between;
+}
+.carticon:hover{
+    color: green;
+}
