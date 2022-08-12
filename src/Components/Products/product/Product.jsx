@@ -7,21 +7,22 @@ import './styles.css'
 
 function Product({product}) {
 
+  console.log(product)
+  
+
   return (
     <Card>
-        <CardMedia image = {product.image} title = {product.name} className = 'media'/>
+        <CardMedia image = {product.image.url} title = {product.name} className = 'media'/>
         <CardContent >
           <div className='cardcontent'>
             <Typography gutterBottom variant ='h5'>
               {product.name}
             </Typography>
             <Typography variant = 'h5'>
-              {product.price}
+              {product.price.formatted_with_symbol}
             </Typography>
           </div>
-          <Typography color = 'textSecondary' variant = 'body2'>
-            {product.description}
-          </Typography>
+          <Typography dangerouslySetInnerHTML={{__html: product.description}} color = 'textSecondary' variant = 'body2'/>
         </CardContent>
         <CardActions disableSpacing className='cardactions'>
           <IconButton aria-label="Add to cart" className = 'carticon'>
