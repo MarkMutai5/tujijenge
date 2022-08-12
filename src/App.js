@@ -6,11 +6,27 @@ import {commerce} from './lib/commerce'
 
 function App() {
 
-  const [products, setProducts] = useState([])
+  const [categories, setCategories] = useState([])
 
   const fetchProducts = async() => {
-    const {data} = await commerce.products.list()
-    setProducts(data)
+    const {data: products} = await commerce.products.list()
+    const {data: categoriesData} = await commerce.categories.list()
+    console.log({products})
+
+    //fetching the category data by spreading and reducing arrays
+    const productsPerCategory = categoriesData.reduce((acc, category) =>{
+      return [
+        ...acc,
+        {
+          ...category,
+          productsData: products.filter((product) =>
+            product.categories.find((cat) => cat.id === category.id)
+          ),
+        },
+      ]
+    }, [])
+
+    setCategories(productsPerCategory)
   }
 
   useEffect(() => {
@@ -22,7 +38,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Products products = {products}/>
+      <Products categories = {categories}/>
     </>
   );
 }

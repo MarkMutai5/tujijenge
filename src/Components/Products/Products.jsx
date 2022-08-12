@@ -1,9 +1,9 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography} from '@material-ui/core'
 import Product from './product/Product'
 import useStyles from './style.js'
 
-function Products({products}) {
+function Products({categories}) {
   
   const classes = useStyles();
 
@@ -11,13 +11,21 @@ function Products({products}) {
   return (
     <main className={classes.content}>
       <div className= {classes.toolbar}/>
-        <Grid container justifyContent = 'center' spacing = {4}>
-            {products.map((product) => (
-                <Grid item key={product.id} xs = {12} sm = {6} md = {4} lg={3}>
-                    <Product product = {product}/>
-                </Grid>
-            ))}
-        </Grid>
+      {categories.map((category) => {
+        return(
+          <>
+          <Typography variant="h5">{category.name}</Typography>
+          <Grid container justifyContent = 'center' spacing = {4}>
+          {category.productsData.map((product) => (
+              <Grid item key={product.id} xs = {12} sm = {6} md = {4} lg={3}>
+                  <Product product = {product}/>
+              </Grid>
+          ))}
+          </Grid>
+          </>
+        )
+      })}
+        
     </main>
   )
 }
