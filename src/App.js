@@ -5,6 +5,8 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar'
 import Products from './Components/Products/Products'
 import Cart from './Components/Cart/Cart';
+import Footer from './Components/Footer/Footer';
+import LandingPage from './Components/LandingPage/LandingPage';
 
 
 function App() {
@@ -53,11 +55,14 @@ function App() {
   console.log(cart)
   
 
+  // wrap these components with chakra provider  ie... <ChakraProvider><TheRestOfYourApplication /></ChakraProvider>
   return (
     <>
-      <Navbar totalItems = {cart.total_items}/>
+      {/*<Navbar totalItems = {cart.total_items}/>*/}
       {/*<Products categories = {categories} onAddToCart = {handleAddToCart}/>*/}
-      <Cart cart = {cart}/>
+     {/*<Cart cart = {cart}/>*/}
+     <LandingPage />
+     {/*<Footer />*/}
     </>
   );
 }

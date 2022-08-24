@@ -1,0 +1,23 @@
+*{
+    scroll-behavior: smooth;
+}
+.container{
+    background-image: url('/public/2206_w048_n005_141b_p1_141.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30rem;
+    padding: 20px;
+    margin: 10px 3px ;
+    position: "absolute"
+}
+.details h1{
+    text-align: center;
+}
+.benefitone{
+    border: 1px solid;
+    width: fit-content;
+    height: 10rem;
+    padding: 10px;
+    margin: 5px 3px;
+    background-image: url('/public/download.jpeg');
+}
